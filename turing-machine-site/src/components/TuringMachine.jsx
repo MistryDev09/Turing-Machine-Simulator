@@ -1,6 +1,7 @@
 import useTuringMachine from "../hooks/useTuringMachine";
 import useWindowSize from "../hooks/useWindowSize";
-import { colors, font } from "../styles/theme";
+import { useTheme } from "../contexts/ThemeContext";
+import { font } from "../styles/theme";
 import ChallengeSelector from "./ChallengeSelector";
 import StatusBar from "./StatusBar";
 import Tape from "./Tape";

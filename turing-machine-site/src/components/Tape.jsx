@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { BLANK } from "../constants/challenges";
-import { colors, tinyBtnStyle } from "../styles/theme";
+import { useTheme } from "../contexts/ThemeContext";
+import { tinyBtnStyle } from "../styles/theme";
 
 export default function Tape({
   tape,

@@ -1,5 +1,6 @@
 import { BLANK } from "../constants/challenges";
-import { colors, font, ruleInputStyle, delBtnStyle, mobileLabelStyle, mobileInputStyle } from "../styles/theme";
+import { useTheme } from "../contexts/ThemeContext";
+import { font, ruleInputStyle, delBtnStyle, mobileLabelStyle, mobileInputStyle } from "../styles/theme";
 
 export default function RulesEditor({
   rules,

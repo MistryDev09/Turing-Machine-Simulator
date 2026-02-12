@@ -1,4 +1,5 @@
-import { colors, font } from "../styles/theme";
+import { useTheme } from "../contexts/ThemeContext";
+import { font } from "../styles/theme";
 
 export default function StateGraph({ rules, currentState, activeRule, isMobile, isTablet }) {
   const uniqueStates = [...new Set([...rules.map((r) => r.state), ...rules.map((r) => r.nextState)])];
