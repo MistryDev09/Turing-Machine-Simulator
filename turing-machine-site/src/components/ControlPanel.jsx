@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { colors, btnStyle, font } from "../styles/theme";
+import { useTheme } from "../contexts/ThemeContext";
+import { btnStyle, font } from "../styles/theme";
 
 export default function ControlPanel({
   onStep,
@@ -14,6 +15,8 @@ export default function ControlPanel({
   canUndo,
   isMobile,
 }) {
+  const { colors } = useTheme();
+
   // Keyboard shortcuts
   useEffect(() => {
     const handler = (e) => {
@@ -56,7 +59,7 @@ export default function ControlPanel({
           onClick={onStep}
           disabled={halted || running}
           aria-label="Step forward one instruction"
-          style={btnStyle(halted || running, false, isMobile)}
+          style={btnStyle(colors, halted || running, false, isMobile)}
         >
           {"\u23ED"} STEP
         </button>
@@ -64,7 +67,7 @@ export default function ControlPanel({
           <button
             onClick={onPause}
             aria-label="Pause machine"
-            style={btnStyle(false, true, isMobile)}
+            style={btnStyle(colors, false, true, isMobile)}
           >
             {"\u23F8"} PAUSE
           </button>
@@ -73,7 +76,7 @@ export default function ControlPanel({
             onClick={onRun}
             disabled={halted}
             aria-label="Run machine"
-            style={btnStyle(halted, true, isMobile)}
+            style={btnStyle(colors, halted, true, isMobile)}
           >
             {"\u25B6"} RUN
           </button>
@@ -82,7 +85,7 @@ export default function ControlPanel({
           onClick={onUndo}
           disabled={!canUndo || running}
           aria-label="Undo last step"
-          style={btnStyle(!canUndo || running, false, isMobile)}
+          style={btnStyle(colors, !canUndo || running, false, isMobile)}
         >
           {"\u21A9"} UNDO
         </button>
@@ -90,7 +93,7 @@ export default function ControlPanel({
           onClick={onReset}
           aria-label="Reset machine"
           style={{
-            ...btnStyle(false, false, isMobile),
+            ...btnStyle(colors, false, false, isMobile),
             borderColor: colors.borderDanger,
             color: colors.danger,
           }}

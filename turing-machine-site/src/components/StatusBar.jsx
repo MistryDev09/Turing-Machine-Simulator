@@ -1,6 +1,8 @@
-import { colors } from "../styles/theme";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function StatusBar({ currentState, headPos, stepCount, halted, won, running, isMobile }) {
+  const { colors } = useTheme();
+
   let statusLabel, statusColor, statusAriaLabel;
   if (halted) {
     if (won) {
@@ -47,7 +49,7 @@ export default function StatusBar({ currentState, headPos, stepCount, halted, wo
           style={{
             color: currentState === "HALT" ? colors.danger : colors.primary,
             fontWeight: 700,
-            textShadow: `0 0 8px ${currentState === "HALT" ? "#ff6b6b44" : "#4fffb044"}`,
+            textShadow: `0 0 8px ${currentState === "HALT" ? colors.glowDanger : colors.glowPrimaryAlt}`,
           }}
         >
           {currentState}

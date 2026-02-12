@@ -8,7 +8,7 @@
     <title>Turing Machine Simulator — Build & Run Turing Machines</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
 
-    <!-- 
+    <!--
       =============================================
       GOOGLE ADSENSE — REPLACE WITH YOUR CODE
       =============================================
@@ -19,6 +19,16 @@
       3. Update the ad slot IDs in src/components/AdBanner.jsx
     -->
     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script> -->
+    <script>
+      // Prevent flash of wrong theme on load
+      (function() {
+        try {
+          var t = localStorage.getItem("turing-machine-theme");
+          if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          document.body.style.background = t === "light" ? "#f0f4f2" : "#0a0a0f";
+        } catch(e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

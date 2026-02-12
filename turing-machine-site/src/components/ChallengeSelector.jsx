@@ -1,7 +1,9 @@
 import { CHALLENGES } from "../constants/challenges";
-import { colors, font } from "../styles/theme";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function ChallengeSelector({ selectedIdx, onSelect, isMobile }) {
+  const { colors } = useTheme();
+
   return (
     <div style={{ marginBottom: isMobile ? 14 : 20 }}>
       <div style={{ fontSize: 10, color: colors.textSecondary, letterSpacing: 3, marginBottom: 8 }}>

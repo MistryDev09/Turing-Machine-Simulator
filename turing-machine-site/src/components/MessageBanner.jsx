@@ -1,6 +1,8 @@
-import { colors } from "../styles/theme";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function MessageBanner({ message, won, isMobile }) {
+  const { colors } = useTheme();
+
   if (!message) return null;
 
   return (

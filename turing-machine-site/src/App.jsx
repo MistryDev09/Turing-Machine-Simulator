@@ -1,17 +1,21 @@
 import TuringMachine from "./components/TuringMachine";
 import AdBanner from "./components/AdBanner";
+import { useTheme } from "./contexts/ThemeContext";
+import { font } from "./styles/theme";
 
 export default function App() {
+  const { colors } = useTheme();
+
   return (
     <div style={{
       minHeight: "100vh",
-      background: "#0a0a0f",
-      fontFamily: "'IBM Plex Mono', 'Fira Code', 'Courier New', monospace",
+      background: colors.bg,
+      fontFamily: font,
     }}>
       {/* ===== TOP AD BANNER ===== */}
       <div style={{ maxWidth: 960, margin: "0 auto", padding: "12px 16px 0" }}>
         <AdBanner
-          adSlot="YOUR_TOP_BANNER_SLOT"   /* ← Replace with real slot ID */
+          adSlot="YOUR_TOP_BANNER_SLOT"
           adFormat="horizontal"
           style={{ marginBottom: 0 }}
         />
@@ -23,7 +27,7 @@ export default function App() {
       {/* ===== BOTTOM AD BANNER ===== */}
       <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 16px 24px" }}>
         <AdBanner
-          adSlot="YOUR_BOTTOM_BANNER_SLOT"  /* ← Replace with real slot ID */
+          adSlot="YOUR_BOTTOM_BANNER_SLOT"
           adFormat="horizontal"
           style={{ marginTop: 0 }}
         />
@@ -36,9 +40,9 @@ export default function App() {
         padding: "16px",
         textAlign: "center",
         fontSize: 10,
-        color: "#4fffb033",
-        borderTop: "1px solid #4fffb011",
-        fontFamily: "'IBM Plex Mono', monospace",
+        color: colors.textDisabled,
+        borderTop: `1px solid ${colors.borderFaint}`,
+        fontFamily: font,
       }}>
         Turing Machine Simulator · Free educational tool
         <br />

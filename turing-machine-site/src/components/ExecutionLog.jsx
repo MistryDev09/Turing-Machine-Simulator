@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { BLANK } from "../constants/challenges";
-import { colors, font } from "../styles/theme";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function ExecutionLog({ history, lastStepResult, stepCount, isMobile }) {
+  const { colors } = useTheme();
   const [expanded, setExpanded] = useState(false);
 
   if (stepCount === 0 && !lastStepResult) return null;
